@@ -19,5 +19,8 @@
   "homepage": "https://github.com/RoxMBaldwin/PostCSS-LostGrid#readme",
   "dependencies": {
     "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-postcss": "^7.0.0"
   }
 }
