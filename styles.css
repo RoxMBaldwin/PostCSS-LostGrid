@@ -2,3 +2,7 @@ body {
   background: red;
   display: flex;
 }
+
+div {
+  lost-column: 1/2;
+}

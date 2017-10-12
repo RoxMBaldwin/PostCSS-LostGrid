@@ -78,7 +78,7 @@ gulp.task('watch:styles', function(){
 });
 ```
 1. We have to require ```gulp``` since it is what we are using for a build runner in this project.
-  * PostCSS offers alternative runners in their [Github repository](https://github.com/postcss/postcss) if you would like to use something other than ```gulp```
+    * PostCSS offers alternative runners in their [Github repository](https://github.com/postcss/postcss) if you would like to use something other than ```gulp```
 
 
 2. Indicate that ```styles.css``` (in the main directory) will be the source for the runner to compile . Then, the compiled file will be sent to the ```styles.css``` file within the 'destination' folder ```dest```.
@@ -218,3 +218,38 @@ gulp.task('watch:styles', function(){
 ```
 
 And now we used be able to start using ```lost```
+
+## 'lost-column'
+
+Start up gulp:
+```
+$ gulp watch:styles
+```
+
+***styles.css***
+Add ```lost-column``` as a property to a ```div```
+```js
+body {
+  background: red;
+  display: flex;
+}
+
+div {
+  lost-column: 1/2;
+}
+```
+
+This says we want each of these columns to be 1/2 the width of its parent.
+
+***dest/styles.css***
+LostGrid uses ```(calc())```
+
+![compiled-with-calc](assests/split-screen.png)
+
+The properties ```LostGrid``` generates for the children is dependant on the 'cycle' the user implements.
+
+* By default, ```Lost``` uses the denominator of ```lost-column``` to grab the nth-child , basically saying every other ```div``` give it ```margin-right: 0```.
+  * if ```lost-column = 1/3```:
+    * then you'd want each item to take up a third of it's parent's width
+    * so there would be three items per row
+    * so then you'd want the third item to have ```margin-right: 0```
