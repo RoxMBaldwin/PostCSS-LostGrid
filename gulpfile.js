@@ -3,11 +3,11 @@ var postcss = require('gulp-postcss')
 var autoprefixer = require('autoprefixer')
 
 gulp.task('styles', function() {
-  var processesors = [
+  var processors = [
     autoprefixer({browsers: ['last 2 version']})
   ]
   return gulp.src('styles.css')
-      .pipe(postcss(processesors))
+      .pipe(postcss(processors))
       .pipe(gulp.dest('./dest'));
 });
 

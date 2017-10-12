@@ -114,7 +114,7 @@ gulp.task('styles', function() {
 ```
 Now we can go ahead and use the PostCSS processesor in our ```gulp.task```. *It is considered a function, hence the parentheses*
 
-The way PostCSS works, it requires you to have additional processesors
+The way PostCSS works, it requires you to have additional processors
  * I am using [autoprefixer](https://www.npmjs.com/package/autoprefixer) which is plugin to parse CSS and add vendor prefixes to CSS
   * Autoprefixer supports the unit function (calc()), which will be important when we introduce ```LostGrid```
 
@@ -145,7 +145,7 @@ gulp.task('watch:styles', function(){
 ```
 
 ### Browsers and Autoprefixer
-You can specify the browsers you want to target in your project by passing the version as a string in an array via an object and a function when you declare ```autoprefixer()``` inside ```var properties```
+You can specify the browsers you want to target in your project by passing the version as a string in an array via an object and a function when you declare ```autoprefixer()``` inside ```var processors```
 
 ```js
 var processesors = [
@@ -181,3 +181,40 @@ body {
   display: flex;
 }
 ```
+
+## Get Lost
+[LostGrid](https://github.com/peterramsing/lost) is based on ```(calc())``` and also offers some FlexBox Grid features as well.
+
+*LostGrid was created by Cory Simmons*
+
+### Installing Lost
+LostGrid is in PostCSS because PostCSS is more flexible than others like Sass or Stylus.
+```
+$ npm install --save-dev lost
+```
+
+## *gulpfile.js*
+
+Require ```lost``` and add it to your ```var processors```
+```js
+var gulp = require('gulp');
+var postcss = require('gulp-postcss')
+var autoprefixer = require('autoprefixer')
+var lost = require('lost')
+
+gulp.task('styles', function() {
+  var processors = [
+    lost,
+    autoprefixer({browsers: ['last 2 version']})
+  ]
+  return gulp.src('styles.css')
+      .pipe(postcss(processors))
+      .pipe(gulp.dest('./dest'));
+});
+
+gulp.task('watch:styles', function(){
+  gulp.watch('**/*.css', ['styles']);
+});
+```
+
+And now we used be able to start using ```lost```
