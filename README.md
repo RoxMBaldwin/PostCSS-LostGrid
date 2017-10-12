@@ -301,8 +301,37 @@ So when we run this (using ```$ lite-server``` or ```$ open index.html```) we sh
 
 *You can see how the first child in each row has a gutter and the second one does not*
 
-If we change ```lost-column: 1/2``` to ```lost-column: 1/3```:
+If we change ```lost-column: 1/2``` to ```lost-column: 1/4```:
 
-![1-3_cycle](assests/1-3_cycle.png)
+![1-4_cycle](assests/cycle_1-4.png)
 
-*1/3 indicates the last child in the cycle is now the third, so each row now has three children. The gutters are on the first and second child while the third child has a margin of zero. All of this is automatically compiled and you only had to change one number*
+*1/4 indicates the last child in the cycle is now the fourth, so each row now has four children*
+  * *The gutters are on the first, second and third child while the fourth child has a margin of zero*  
+  * *All of this is automatically compiled and you only had to change one number*
+
+## Adding more complexity to the grid
+
+***index.html***
+
+Add two nested grid items to one of the grid-items:
+```html
+<div class="grid-item">
+  <div class="nested-grid-item"></div>
+  <div class="nested-grid-item"></div>
+</div>
+```
+
+And give them a background color in your working *styles.css* as well as a height and margin-bottom property less than their parent.
+
+*run ```$gulp watch:styles``` and ```$ lite-server``` || ```open index.html```*
+
+![nested-grid-items](assests/nested-grid-items.png)
+
+```css
+.grid-one div {
+  lost-column: 1/4;
+}
+```
+
+This is saying that any child of grid-1 thats a div, apply this lost-column: 1/4 to it
+  * the nested-items take up 1/4 of the parent so they take up 1/2 of their parent
