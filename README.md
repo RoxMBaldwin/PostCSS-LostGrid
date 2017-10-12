@@ -298,3 +298,11 @@ In you *styles.css* :
 So when we run this (using ```$ lite-server``` or ```$ open index.html```) we should see 3 rows each with two of these grid-items and the last with one grid-item (all with the background color)
 
 ![basic-grid](assests/basic-grid.png)
+
+*You can see how the first child in each row has a gutter and the second one does not*
+
+If we change ```lost-column: 1/2``` to ```lost-column: 1/3```:
+
+![1-3_cycle](assests/1-3_cycle.png)
+
+*1/3 indicates the last child in the cycle is now the third, so each row now has three children. The gutters are on the first and second child while the third child has a margin of zero. All of this is automatically compiled and you only had to change one number*
