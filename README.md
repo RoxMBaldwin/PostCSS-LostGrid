@@ -46,7 +46,7 @@ Add a ```gulpfile.js``` to your working directory:
 $ touch gulpfile.js
 ```
 
-Add another folder called ```dest``` to the working directory and add a ```styles.css``` file to the new folder.
+Add another folder called *dest* to the working directory and add a *styles.css* file to the new folder.
 
  *Make sure to back out into the working directory after adding the files so as to avoid workflow confusion*
 ```
@@ -81,7 +81,7 @@ gulp.task('watch:styles', function(){
     * PostCSS offers alternative runners in their [Github repository](https://github.com/postcss/postcss) if you would like to use something other than ```gulp```
 
 
-2. Indicate that ```styles.css``` (in the main directory) will be the source for the runner to compile . Then, the compiled file will be sent to the ```styles.css``` file within the 'destination' folder ```dest```.
+2. Indicate that *styles.css* (in the main directory) will be the source for the runner to compile . Then, the compiled file will be sent to the *styles.css* file within the 'destination' folder *dest*.
 
 3. If you are familar with Sass, then you have seen this ```watch``` before. We give ```gulp``` the ```task``` to ```watch``` our CSS files and when we make changes to them, ```gulp``` will see them and compile for us.
 
@@ -156,7 +156,7 @@ var processesors = [
 Now we have ```autoprefixer``` looking for only the last two versions of the most recent browsers.
 
 ### *styles.css*
-To test that everything is connected and correctly formatted, add some basic styling to the ```styles.css``` file in the main directory.
+To test that everything is connected and correctly formatted, add some basic styling to the *styles.css* file in the main directory.
 
 ```css
 body {
@@ -165,7 +165,7 @@ body {
 }
 ```
 
-From your command line, use ```gulp``` to 'watch' for when you are working in the ```styles.css``` file and ```autoprefixer``` will prefix your style properties into the ```styles.css``` in your ```dest``` folder.
+From your command line, use ```gulp``` to 'watch' for when you are working in the *styles.css* file and ```autoprefixer``` will prefix your style properties into the *styles.css* in your *dest* folder.
 ```
 $ gulp watch:styles
 ```
@@ -227,6 +227,7 @@ $ gulp watch:styles
 ```
 
 ***styles.css***
+
 Add ```lost-column``` as a property to a ```div```
 ```js
 body {
@@ -242,7 +243,10 @@ div {
 This says we want each of these columns to be 1/2 the width of its parent.
 
 ***dest/styles.css***
-LostGrid uses ```(calc())```
+
+LostGrid uses ```(calc())``` to generate values.
+
+*[styles.css on right && dest.styles.css on left]*
 
 ![compiled-with-calc](assests/split-screen.png)
 
@@ -252,4 +256,45 @@ The properties ```LostGrid``` generates for the children is dependant on the 'cy
   * if ```lost-column = 1/3```:
     * then you'd want each item to take up a third of it's parent's width
     * so there would be three items per row
-    * so then you'd want the third item to have ```margin-right: 0```
+    * so then you would want the third item to have ```margin-right: 0```
+
+
+In CSS Grid, you have to define the parameters of the grid within the parent and if your math or structure is a little off it won't work. Since LostGrid uses (calc()), it automatically organizes the grid for you and you only need to alter the 'cycle' and the relationship of the parent to the children.
+
+
+## Building a Basic Grid  
+
+Add an *index.html* with some structure like below to your main directory:
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PostCSS-LostGrid</title>
+    <link rel="stylesheet" href="/dest/styles.css">
+  </head>
+  <body>
+    <section class="grid-one">
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </section>
+  </body>
+</html>
+```
+
+In you *styles.css* :
+  * add a height and a background color to your ```.grid-item```
+    * and add ```margin-bottom: 20px;``` so the children are squashed together
+  * ```.grid-one``` is the section container for this grid.
+    * add the ```lost-utility: clear-fix;``` and ```width: 100%;``` to it.
+  * ```.grid-one div``` will be looking for any 'divs' inside of ```grid-one```
+    * add ```lost-column: 1/2;```
+
+    *make sure to run ```$ gulp watch:styles``` to compile your CSS into the dest folder*
+
+So when we run this (using ```$ lite-server``` or ```$ open index.html```) we should see 3 rows each with two of these grid-items and the last with one grid-item (all with the background color)
+
+![basic-grid](assests/basic-grid.png)
