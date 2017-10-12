@@ -13,12 +13,14 @@ body{
 .nested-grid-item {
   background: #37A0B2;
   height: 50px;
+  width: 100%;
   margin-bottom: 10px;
 }
 
 .grid-one {
   width: 100%;
-  lost-utility: clearfix;
+  lost-center: 80%;
+  background: #9AE1E3;
 }
 
 /*LostGrid automatically compiles changes to the cycle*/

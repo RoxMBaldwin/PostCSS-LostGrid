@@ -396,10 +396,40 @@ Make your grid responsive using regualr media queries
 
 
 
-*The grid at 1100px and up*
+*The grid at 1100px and up*<br>
 ![1100px-gutter50px](assests/1100px-gutter50px.png)
 
 
 *We easily added a gutter of 50px to this one, with a cycle of 4*
 
 As you can see, it is very easy to make your grid responsive by only including one line of code in you media queries.
+
+
+## Centering Divs
+
+### Making a container using 'lost-center'
+
+'lost-center' is essentailly just a container element
+
+replace:
+```css
+.grid-one {
+  width: 100%;
+  lost-utility: clearfix;
+}
+```
+
+with:
+```css
+.grid-one {
+  width: 100%;
+  lost-center: 80%;
+  background: #9AE1E3;
+}
+```
+
+The percentage of ```lost-center``` will center the grid with the correct margins
+  * it's very helpful to build a container with
+    * you can see the container is that background color you applied to ```.grid-one```
+
+![with-container-shown](assests/with-container-show.png)
