@@ -321,7 +321,7 @@ Add two nested grid items to one of the grid-items:
 </div>
 ```
 
-And give them a background color in your working *styles.css* as well as a height and margin-bottom property less than their parent.
+And give ```.nested-grid-item``` a background color in your working *styles.css* as well as a height and margin-bottom property less than their parent.
 
 *run ```$gulp watch:styles``` and ```$ lite-server``` || ```open index.html```*
 
@@ -341,6 +341,65 @@ This is saying that any child of ```grid-1``` thats a ```div```, apply this ```l
 
 You can manually manipulate the cycle of the children by adding the desired length
 
-  ```lost-column: 1/3 2;```
+  ```
+  lost-column: 1/3 2;
+  ```
 
   * the last child will now be every second one.
+
+
+## Making the Grid responsive
+
+We will be designing a grid that increases or decreases the number of columns depending on the width; in other words, a responsive grid.
+
+***styles.css***
+
+```css
+.grid-one div {
+  lost-column: 1/1;
+}
+ ```
+
+*Make the default amount of columns 1*
+
+Make your grid responsive using regualr media queries
+
+```css
+@media (min-width: 400px){
+  .grid-one div {
+    lost-column: 1/2;
+  }
+}
+
+@media (min-width: 900px){
+  .grid-one div {
+    lost-column: 1/3;
+  }
+}
+
+@media (min-width: 1100px){
+  .grid-one div {
+    lost-column: 1/4 4 50px;
+  }
+}
+```
+*The grid at less than 400px*<br>
+![less-than-400px](assests/less-than-400px.png)
+
+*The grid at 400px*<br>
+![400px](assests/400px.png)
+
+
+
+*The grid at 900px*
+![900px](assests/900px.png)
+
+
+
+*The grid at 1100px and up*
+![1100px-gutter50px](assests/1100px-gutter50px.png)
+
+
+*We easily added a gutter of 50px to this one, with a cycle of 4*
+
+As you can see, it is very easy to make your grid responsive by only including one line of code in you media queries.
