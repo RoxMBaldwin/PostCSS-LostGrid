@@ -17,10 +17,11 @@
     "url": "https://github.com/RoxMBaldwin/PostCSS-LostGrid/issues"
   },
   "homepage": "https://github.com/RoxMBaldwin/PostCSS-LostGrid#readme",
-  "dependencies": {
-    "gulp": "^3.9.1"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "autoprefixer": "^7.1.5",
+    "autoprefixer-core": "^6.0.1",
+    "gulp": "^3.9.1",
     "gulp-postcss": "^7.0.0"
   }
 }
