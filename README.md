@@ -259,7 +259,7 @@ The properties ```LostGrid``` generates for the children is dependant on the 'cy
     * so then you would want the third item to have ```margin-right: 0```
 
 
-In CSS Grid, you have to define the parameters of the grid within the parent and if your math or structure is a little off it won't work. Since LostGrid uses (calc()), it automatically organizes the grid for you and you only need to alter the 'cycle' and the relationship of the parent to the children.
+In CSS Grid, you have to define the parameters of the grid within the parent and if your math or structure is a little off it won't work. Since LostGrid uses (calc()), it automatically organizes the grid for you and you only need to alter the ```lost-column``` denominator and the relationship of the parent to the children.
 
 
 ## Building a Basic Grid  
@@ -325,13 +325,22 @@ And give them a background color in your working *styles.css* as well as a heigh
 
 *run ```$gulp watch:styles``` and ```$ lite-server``` || ```open index.html```*
 
-![nested-grid-items](assests/nested-grid-items.png)
+![nested-grid-items](assests/nested-items.png)
 
 ```css
 .grid-one div {
-  lost-column: 1/4;
+  lost-column: 1/3;
 }
 ```
 
-This is saying that any child of grid-1 thats a div, apply this lost-column: 1/4 to it
-  * the nested-items take up 1/4 of the parent so they take up 1/2 of their parent
+This is saying that any child of ```grid-1``` thats a ```div```, apply this ```lost-column: 1/3;``` to it
+  * the nested-items take up 1/3 of the parent so, together, they take up 1/3 + 1/3 = 2/6 || 1/3 of their parent
+
+
+### Manipulating the Cycle
+
+You can manually manipulate the cycle of the children by adding the desired length
+
+  ```lost-column: 1/3 2;```
+
+  * the last child will now be every second one.
