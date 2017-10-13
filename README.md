@@ -415,6 +415,8 @@ with:
 }
 ```
 
+![with-container-shown](assests/with-container-show.png)
+
 The percentage of ```lost-center``` will center the grid with the correct margins
   * it's very helpful to build a container with
     * you can see the container is that background color you applied to and it goes right to the edges og the grid ```.grid-one```
@@ -425,35 +427,6 @@ The percentage of ```lost-center``` will center the grid with the correct margin
 
 ![with-padding](assests/container-w-padding.png)
 
-
-## Centering Divs
-
-### Making a container using 'lost-center'
-
-'lost-center' is essentailly just a container element
-
-replace:
-```css
-.grid-one {
-  width: 100%;
-  lost-utility: clearfix;
-}
-```
-
-with:
-```css
-.grid-one {
-  width: 100%;
-  lost-center: 80%;
-  background: #9AE1E3;
-}
-```
-
-The percentage of ```lost-center``` will center the grid with the correct margins
-  * it's very helpful to build a container with
-    * you can see the container is that background color you applied to ```.grid-one```
-
-![with-container-shown](assests/with-container-show.png)
 
 ### Centering Items
 
