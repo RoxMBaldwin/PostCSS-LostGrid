@@ -430,6 +430,83 @@ with:
 
 The percentage of ```lost-center``` will center the grid with the correct margins
   * it's very helpful to build a container with
+    * you can see the container is that background color you applied to and it goes right to the edges og the grid ```.grid-one```
+
+![with-container-shown](assests/with-container-show.png)
+
+*you can add padding too, ```lost-center: 80% 40px;```*
+
+![with-padding](assests/container-w-padding.png)
+
+
+## Centering Divs
+
+### Making a container using 'lost-center'
+
+'lost-center' is essentailly just a container element
+
+replace:
+```css
+.grid-one {
+  width: 100%;
+  lost-utility: clearfix;
+}
+```
+
+with:
+```css
+.grid-one {
+  width: 100%;
+  lost-center: 80%;
+  background: #9AE1E3;
+}
+```
+
+The percentage of ```lost-center``` will center the grid with the correct margins
+  * it's very helpful to build a container with
     * you can see the container is that background color you applied to ```.grid-one```
 
 ![with-container-shown](assests/with-container-show.png)
+
+### Centering Items
+
+***index.html***
+
+Add some ```<h2>text</h2>``` to your ```grid-items```
+
+![taco-truck](assests/taco-truck.png)
+
+***styles.css***
+
+To align the text in the middle-center of the div:
+```css
+.grid-one div h2 {
+  color: #D0DC67;
+  font-family: Sans-serif;
+  margin: 0;
+}
+```
+
+*make sure to give it a margin of zero so that it ignores the margins that the parent tries to pass along and the text will be centered correctly*
+
+```css
+.grid-one div {
+  lost-column: 1/1;
+  lost-align: center;
+}
+```
+
+*add the ```lost-align: center;``` property to the parent*
+
+
+![center-tacotruck](assests/centered-tacotruck.png)
+
+
+
+Just by including one line of code, ```lost-align: center;``` we can center content easily
+
+![compiled](assests/compiled-center.png)
+
+
+
+*Special thanks to LevelUp's [PostCSS Tutorials](https://www.youtube.com/watch?v=fMg5HlHmGLY&list=PLLnpHn493BHFvjZzyYrQP0RTsG-Al7j9m&index=1)*

@@ -25,6 +25,8 @@ body{
   max-width: 80%;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
   background: #9AE1E3;
 }
 
@@ -46,6 +48,7 @@ body{
 
 .grid-one div {
   width: calc(99.9% * 1/1 - (30px - 30px * 1/1));
+  position: relative;
 }
 
 .grid-one div:nth-child(1n) {
@@ -65,6 +68,23 @@ body{
 
 .grid-one div:nth-child(1n + 1) {
   clear: both;
+}
+
+.grid-one div > * {
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+/*Centering content*/
+.grid-one div h2 {
+  color: #D0DC67;
+  font-family: Sans-serif;
+  margin: 0;
 }
 
 /*You can use regular media queries to make the grid responsive*/
