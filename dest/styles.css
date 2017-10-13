@@ -48,31 +48,26 @@ body{
 }*/
 
 /*You can use regular media queries to make the grid responsive*/
-
+/*Set the default lost-column to 1/1 so your grid stack at the absolute min width*/
 .grid-one div {
   width: calc(99.9% * 1/1 - (30px - 30px * 1/1));
   position: relative;
 }
-
 .grid-one div:nth-child(1n) {
   float: left;
   margin-right: 30px;
   clear: none;
 }
-
 .grid-one div:last-child {
   margin-right: 0;
 }
-
 .grid-one div:nth-child(1n) {
   margin-right: 0;
   float: right;
 }
-
 .grid-one div:nth-child(1n + 1) {
   clear: both;
 }
-
 .grid-one div > * {
   position: absolute;
   top: 50%;
@@ -90,7 +85,7 @@ body{
   margin: 0;
 }
 
-
+/*Just use regualr media queries; you dont have to establish stucture or styling again*/
 
 @media (min-width: 400px){
   .grid-one div {

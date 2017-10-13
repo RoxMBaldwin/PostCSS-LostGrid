@@ -20,7 +20,6 @@
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^7.1.5",
-    "autoprefixer-core": "^6.0.1",
     "gulp": "^3.9.1",
     "gulp-postcss": "^7.0.0",
     "lost": "^8.2.0"

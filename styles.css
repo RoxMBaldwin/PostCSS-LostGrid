@@ -30,7 +30,7 @@ body{
 }*/
 
 /*You can use regular media queries to make the grid responsive*/
-
+/*Set the default lost-column to 1/1 so your grid stack at the absolute min width*/
 .grid-one div {
   lost-column: 1/1;
   lost-align: center;
@@ -43,7 +43,7 @@ body{
   margin: 0;
 }
 
-
+/*Just use regualr media queries; you dont have to establish stucture or styling again*/
 
 @media (min-width: 400px){
   .grid-one div {
