@@ -38,24 +38,11 @@ $ npm install gulp
 ```
 
 
-
 ### Project file structure
 
 Add a ```gulpfile.js``` to your working directory:
-```
-$ touch gulpfile.js
-```
 
 Add another folder called *dest* to the working directory and add a *styles.css* file to the new folder.
-
- *Make sure to back out into the working directory after adding the files so as to avoid workflow confusion*
-```
-$ mkdir dest
-$ cd dest
-$ touch styles.css
-$ cd ..
-```
-
 
 *Your file structure should look something like this to start with:*
 
@@ -285,9 +272,9 @@ Add an *index.html* with some structure like below to your main directory:
 </html>
 ```
 
-In you *styles.css* :
+In your *styles.css* :
   * add a height and a background color to your ```.grid-item```
-    * and add ```margin-bottom: 20px;``` so the children are squashed together
+    * and add ```margin-bottom: 20px;``` so the children aren't squashed together
   * ```.grid-one``` is the section container for this grid.
     * add the ```lost-utility: clear-fix;``` and ```width: 100%;``` to it.
   * ```.grid-one div``` will be looking for any 'divs' inside of ```grid-one```
@@ -391,7 +378,7 @@ Make your grid responsive using regualr media queries
 
 
 
-*The grid at 900px*
+*The grid at 900px*<br>
 ![900px](assests/900px.png)
 
 
